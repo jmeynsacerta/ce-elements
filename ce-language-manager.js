@@ -1,4 +1,6 @@
 let currentLanguage = '';
+const COMPONENTS_STARTING_WITH = ['acerta-', 'ce-'];
+const ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT = 'acertaLanguageManagerLanguageChanged';
 
 // Create a class for the element
 class CeLanguageManagerElement extends HTMLElement {
