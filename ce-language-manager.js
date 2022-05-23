@@ -1,4 +1,4 @@
-let currentLanguage = '';
+let currentLanguage = 'en';
 const COMPONENTS_STARTING_WITH = ['acerta-', 'ce-'];
 const ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT = 'acertaLanguageManagerLanguageChanged';
 
