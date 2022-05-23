@@ -1,5 +1,8 @@
+let currentLanguage = '';
+
 // Create a class for the element
 class CeLanguageManagerElement extends HTMLElement {
+
   constructor() {
     // Always call super first in constructor
     super();
@@ -17,8 +20,8 @@ class CeLanguageManagerElement extends HTMLElement {
           });
         }
       });
-      if (this.currentLanguage && needToTriggerEvent) {
-        document.dispatchEvent(new CustomEvent(ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT, { bubbles: true, composed: true, detail: this.currentLanguage }));
+      if (currentLanguage && needToTriggerEvent) {
+        document.dispatchEvent(new CustomEvent(ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT, { bubbles: true, composed: true, detail: currentLanguage }));
       }
     });
     mutationObserver.observe(document.body, observerOption);
@@ -30,14 +33,14 @@ class CeLanguageManagerElement extends HTMLElement {
     document.addEventListener(languageChangedEventName, (event) => {
       const eventDetail = event.detail;
       console.info(`Setting language '${eventDetail}'`);
-      this.currentLanguage = eventDetail;
-      document.dispatchEvent(new CustomEvent(ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT, { bubbles: true, composed: true, detail: this.currentLanguage }));
+      currentLanguage = eventDetail;
+      document.dispatchEvent(new CustomEvent(ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT, { bubbles: true, composed: true, detail: currentLanguage }));
     });
 
-    this.currentLanguage = defaultLanguage;
-    if (this.currentLanguage) {
-      console.log(`Setting language '${this.currentLanguage}'`);
-      document.dispatchEvent(new CustomEvent(ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT, { bubbles: true, composed: true, detail: this.currentLanguage }));
+    currentLanguage = defaultLanguage;
+    if (currentLanguage) {
+      console.log(`Setting language '${currentLanguage}'`);
+      document.dispatchEvent(new CustomEvent(ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT, { bubbles: true, composed: true, detail: currentLanguage }));
     }
 
   }
