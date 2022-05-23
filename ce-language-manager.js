@@ -1,3 +1,5 @@
+import {Element} from "../../ce-style/assets/acerta-style";
+
 let currentLanguage = 'en';
 const COMPONENTS_STARTING_WITH = ['acerta-', 'ce-'];
 const ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT = 'acertaLanguageManagerLanguageChanged';
@@ -49,4 +51,4 @@ document.dispatchEvent(new CustomEvent(ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_
 }
 
 // Define the new element
-customElements.define('ce-language-manager', CeLanguageManagerElement);
+window.customElements.define('ce-language-manager', CeLanguageManagerElement);
