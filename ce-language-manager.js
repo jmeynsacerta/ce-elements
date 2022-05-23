@@ -1,5 +1,3 @@
-import {Element} from "../../ce-style/assets/acerta-style";
-
 let currentLanguage = 'en';
 const COMPONENTS_STARTING_WITH = ['acerta-', 'ce-'];
 const ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT = 'acertaLanguageManagerLanguageChanged';
@@ -31,7 +29,9 @@ class CeLanguageManagerElement extends HTMLElement {
       document.dispatchEvent(new CustomEvent(ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT, { bubbles: true, composed: true, detail: currentLanguage }));
     }
   });
-  mutationObserver.observe(document.body, observerOption);
+
+  const container = document.documentElement || document.body;
+  mutationObserver.observe(container, observerOption);
 
 
   const languageChangedEventName = 'languageChanged';
