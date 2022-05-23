@@ -1,13 +1,13 @@
-let currentLanguage = 'en';
-const COMPONENTS_STARTING_WITH = ['acerta-', 'ce-'];
-const ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT = 'acertaLanguageManagerLanguageChanged';
-
 // Create a class for the element
 class CeLanguageManagerElement extends HTMLElement {
 
   constructor() {
     // Always call super first in constructor
     super();
+
+    let currentLanguage = 'en';
+    const COMPONENTS_STARTING_WITH = ['acerta-', 'ce-'];
+    const ACERTA_LANGUAGE_MANAGER_LANGUAGE_CHANGED_EVENT = 'acertaLanguageManagerLanguageChanged';
 
     const observerOption = { childList: true, subtree: true, attributes: true, characterData: true };
     const mutationObserver = new MutationObserver((mutations) => {
